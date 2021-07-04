@@ -14,8 +14,8 @@ class EventRepository
     @events
   end
 
-  def find_payment(input)
-    @events.select { |event| event.name == input }
+  def find_event(id)
+    @events.find { |event| event.id == id }
   end
 
   private

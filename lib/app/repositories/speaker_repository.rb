@@ -14,9 +14,10 @@ class SpeakerRepository
     @speakers
   end
 
-  def find_payment(input)
-    @speakers.find { |speaker| speaker.name == input }
+  def find_speaker(id)
+    @speakers.find { |event| event.id == id }
   end
+
 
   private
 
