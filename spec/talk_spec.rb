@@ -1,7 +1,7 @@
 begin
-  require_relative "../lib/models/talk"
-  require_relative "../lib/models/speaker"
-  require_relative "../lib/models/event"
+  require_relative "../lib/app/models/talk"
+  require_relative "../lib/app/models/speaker"
+  require_relative "../lib/app/models/event"
 rescue LoadError => e
   if e.message =~ /order/
     describe "Talk" do
@@ -23,11 +23,11 @@ describe Talk do
     expect(talk_class).to be_a(Talk)
   end
 
-  it "should return the event of Talk class" do
+  it "should return the Event of Talk class" do
     expect(talk_class.event).to eq(event_class)
   end
 
-  it "should return the speaker of Talk class" do
+  it "should return the Speaker of Talk class" do
     expect(talk_class.speaker).to eq(speaker_class)
   end
 

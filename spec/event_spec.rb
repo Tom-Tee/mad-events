@@ -1,9 +1,9 @@
 begin
-  require_relative "../lib/models/event"
+  require_relative "../lib/app/models/event"
 rescue LoadError => e
   if e.message =~ /order/
     describe "Event" do
-      it "You need a `beverage.rb` file for `Event` model" do
+      it "You need a `event.rb` file for `Event` model" do
         fail
       end
     end

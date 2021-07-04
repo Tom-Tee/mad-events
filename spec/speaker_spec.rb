@@ -1,5 +1,5 @@
 begin
-  require_relative "../lib/models/speaker"
+  require_relative "../lib/app/models/speaker"
 rescue LoadError => e
   if e.message =~ /order/
     describe "Event" do
