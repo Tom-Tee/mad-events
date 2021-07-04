@@ -6,7 +6,7 @@ class EventRepository
   def initialize(csv_file)
     @csv_file = csv_file
     @events = []
-    load_csv
+    load_csv if File.exist?(@csv_file)
     # binding.pry
   end
 
@@ -15,7 +15,7 @@ class EventRepository
   end
 
   def find_payment(input)
-    @events.select { |order| order.user == input }
+    @events.select { |event| event.name == input }
   end
 
   private
