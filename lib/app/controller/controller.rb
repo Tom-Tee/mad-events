@@ -1,15 +1,15 @@
-require_relative '../models/event'
-require_relative '../models/speaker'
-require_relative '../models/talk'
+# require_relative '../models/event'
+# require_relative '../models/speaker'
+# require_relative '../models/talk'
 
-class Controller
+# class Controller
 
-  def initialize()
-    @event = []
-    @speaker = []
-    @talk = []
-  end
+#   def initialize()
+#     @event = []
+#     @speaker = []
+#     @talk = []
+#   end
 
 
 
-end
+# end

@@ -17,9 +17,9 @@ end
 describe SpeakerRepository, :speaker do
     let(:speakers) do
     [
-      [ "name" ],
-      [ 'Jacqui Cooper' ],
-      [ 'Chyloe Kurdas' ]
+      [ "id", "name" ],
+      [ 1, 'Jacqui Cooper' ],
+      [ 2, 'Chyloe Kurdas' ]
     ]
   end
 

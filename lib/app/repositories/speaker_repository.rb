@@ -23,7 +23,10 @@ class SpeakerRepository
   def load_csv
     csv_options = { headers: :first_row, header_converters: :symbol }
     CSV.foreach(@csv_file, csv_options) do |row|
-      @speakers << Speaker.new(row.to_s)
+      # binding.pry
+      row[:id] = row[:id].to_i
+      row[:name] = row[:name].to_s
+      @speakers << Speaker.new(row[:name], row[:id])
     end
   end
 end

@@ -17,9 +17,9 @@ end
 describe EventRepository, :event do
     let(:events) do
     [
-      [ "name" ],
-      [ 'Hybrid Melbourne Showcase' ],
-      [ 'Partnering to End Modern Slavery' ]
+      [ 'id', 'name' ],
+      [ 1, 'Hybrid Melbourne Showcase' ],
+      [ 2, 'Partnering to End Modern Slavery' ]
     ]
   end
 
@@ -56,6 +56,7 @@ describe EventRepository, :event do
         loaded_events.each do |event|
           expect(event).to be_a(Event)
           expect(event.name).to be_a(String)
+          expect(event.id).to be_a(Integer)
         end
       end
     end

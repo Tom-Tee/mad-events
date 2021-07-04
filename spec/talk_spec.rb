@@ -15,9 +15,9 @@ rescue LoadError => e
 end
 
 describe Talk do
-  let(:event_class) { Event.new("Hybrid Melbourne Showcase") }
-  let(:speaker_class) { Speaker.new("Jacqui Cooper") }
-  let(:talk_class) { Talk.new(event_class, speaker_class, Time.at(14000000000), Time.at(15000000000)) }
+  let(:event_class) { Event.new("Hybrid Melbourne Showcase", 1) }
+  let(:speaker_class) { Speaker.new("Jacqui Cooper", 2) }
+  let(:talk_class) { Talk.new(event_class, speaker_class, Time.at(14000000000), Time.at(15000000000), 1) }
 
   it "should be initialized with an event, speaker, start_time, end_time" do
     expect(talk_class).to be_a(Talk)

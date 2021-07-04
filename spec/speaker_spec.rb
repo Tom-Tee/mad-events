@@ -13,7 +13,7 @@ rescue LoadError => e
 end
 
 describe Speaker do
-  let(:speaker_class) { Speaker.new("Jacqui Cooper") }
+  let(:speaker_class) { Speaker.new("Jacqui Cooper", 2) }
 
   it "should be initialized with a name" do
     expect(speaker_class).to be_a(Speaker)

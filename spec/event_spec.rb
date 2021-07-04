@@ -13,7 +13,7 @@ rescue LoadError => e
 end
 
 describe Event do
-  let(:event_class) { Event.new("Hybrid Melbourne Showcase") }
+  let(:event_class) { Event.new("Hybrid Melbourne Showcase", 1) }
 
   it "should be initialized with a name" do
     expect(event_class).to be_a(Event)

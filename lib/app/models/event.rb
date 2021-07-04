@@ -1,7 +1,8 @@
 class Event
-  attr_reader :name
+  attr_reader :name, :id
 
-  def initialize(name)
+  def initialize(name, id)
     @name = name
+    @id = id
   end
 end
