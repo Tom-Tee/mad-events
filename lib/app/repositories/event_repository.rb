@@ -22,8 +22,12 @@ class EventRepository
     @events
   end
 
-  def find_event(id)
+  def find_event_by_id(id)
     @events.find { |event| event.id == id }
+  end
+
+  def find_event_by_name(name)
+    @events.find { |event| event.name == name }
   end
 
   private

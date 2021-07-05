@@ -14,17 +14,19 @@ class SpeakerRepository
     @speakers
   end
 
-  def find_speaker(id)
+  def find_speaker_by_id(id)
     @speakers.find { |event| event.id == id }
+  end
+
+  def find_speaker_by_name(name)
+    @speakers.find { |event| event.name == name }
   end
 
   def create(speaker)
     speaker.id = @next_id
     @speakers << speaker
-        # binding.pry
     @next_id += 1
-        # binding.pry
-    # save_csv ???
+    # save csv?
   end
 
 

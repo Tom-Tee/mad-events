@@ -17,36 +17,67 @@ class Router
     welcome_selection
     get_choice = gets.chomp
     user_action(get_choice)
-    puts "----------------------"
+    # puts "----------------------"
   end
 
    def welcome_selection
-    puts "--------------------"
-    puts "---- MAD EVENTS ----"
-    puts "--------------------"
+    puts "-------------------------------------------"
+    puts "------------- MAD EVENTS ------------------"
+    puts "-- VIRTUAL & HYBRID EVENT CONTROL CENTER --"
+    puts "-------------------------------------------"
     puts "1. See some of our previous events"
     puts "2. See a list of our speakers"
-    puts "3. Create your Event, Speakers and Talks"
+    puts "3. Create an Event, Speakers and Talks"
     puts "4. Exit"
     print "> "
   end
 
   def event_details
-    puts "PLEASE CREATE AN EVENT WITH `CREATE EVENT (event name)`"
-    puts "PLEASE CREATE A SPEAKER WITH `CREATE SPEAKER (speaker name)`"
-    puts "PLEASE CREATE A TALK WITH `CREATE TALK (name, speaker, start time, end time)`"
-    puts "Input your choice;"
+    puts "-------------------------------------------"
+    puts "PLEASE CREATE AN EVENT WITH `CREATE EVENT event_name`"
+    puts "EXAMPLE: `CREATE EVENT melbourne_tech_meetup"
+    puts "-------------------------------------------"
+    puts "PLEASE CREATE A SPEAKER WITH `CREATE SPEAKER speaker_name`"
+    puts "EXAMPLE: `CREATE SPEAKER John"
+    puts "-------------------------------------------"
+    puts "PLEASE CREATE A TALK WITH `CREATE TALK (event_name, talk_name, start_time, end_time, speaker_name)`"
+    puts "`CREATE TALK melbourne_tech_meetup 'working with arrays' 7:30am 8:00am John`"
+    puts "-------------------------------------------"
+    puts "PRESS 4 to GO BACK TO VIRTUAL & HYBRID EVENT CONTROL CENTER"
+    puts "Input your choice:"
   end
 
+  def must_be_correct
+    puts "Please write function in the correct manner e.g - `event_name 'hello world' 2:00pm 2:30pm Sam`"
+    puts "Make sure that the speaker and event are already created."
+  end
 
   def create_event_information
-    event_details
-    choice = gets.chomp
-    @controller.add_event(choice[13..choice.length]) if (choice.include?("CREATE EVENT"))
-    @controller.add_speaker(choice[15..choice.length]) if (choice.include?("CREATE SPEAKER"))
+    running_event = true
+    while running_event == true
+      event_details
+      choice = gets.chomp
+      @controller.add_event(choice[13..choice.length]) if (choice.include?("CREATE EVENT"))
+      @controller.add_speaker(choice[15..choice.length]) if (choice.include?("CREATE SPEAKER"))
+      @controller.add_talk(choice[12..choice.length]) if (choice.include?("CREATE TALK"))
+      running_event = false if choice == "4"
+    end
   end
 
+  # def create_a_talk(choice)
+  #   updated_choice = choice[12..choice.length]
+      # regex = /([a-zA-Z_\s()]*) (['a-zA-Z\s']*) ([\d{2}:am||pm]*) ([\d{2}:am||pm]*) ([a-zA-Z]*)/
+  #     match_regex = updated_choice.match(regex)
+  #     binding.pry
+  #     if match_regex == nil
+  #       must_be_correct
+  #     else
+  #     @controller.add_talk(match_regex)
+  #   end
+  # end
+
   def user_action(choice)
+    system 'clear'
     case choice.to_i
     when 1 then @controller.list_all_events
     when 2 then @controller.list_all_speakers

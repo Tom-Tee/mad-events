@@ -13,13 +13,24 @@ class TalkRepository
     load_csv
   end
 
+  def all
+    @talks
+  end
+
+  def create(talk)
+    # talk.id = @next_id
+    @talks << talk
+    # @next_id += 1
+    # save csv?
+  end
+
   def load_csv
     csv_options = { headers: :first_row, header_converters: :symbol }
     CSV.foreach(@csv_file, csv_options) do |row|
       row[:id] = row[:id].to_i
       # binding.pry
-      row[:event] = @event_repository.find_event(row[:event_id].to_i)
-      row[:speaker] = @speaker_repository.find_speaker(row[:speaker_id].to_i)
+      row[:event] = @event_repository.find_event_by_id(row[:event_id].to_i)
+      row[:speaker] = @speaker_repository.find_speaker_by_id(row[:speaker_id].to_i)
       row[:start_time] = Time.now
       row[:end_time] = Time.now
       @talks << Talk.new(row)

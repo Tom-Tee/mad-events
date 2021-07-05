@@ -21,6 +21,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.2)
+    tod (3.0.0)
 
 PLATFORMS
   x86_64-darwin-19
@@ -29,6 +30,7 @@ DEPENDENCIES
   pry
   rake
   rspec
+  tod
 
 BUNDLED WITH
    2.2.21
