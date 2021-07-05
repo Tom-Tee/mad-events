@@ -11,7 +11,7 @@ class Router
   def start_mad_events
     welcome_message
     get_choice = gets.chomp
-    user_action(get_choice)
+    user_action(user_choice)
   end
 
   def welcome_message

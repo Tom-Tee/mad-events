@@ -1,13 +1,13 @@
 require 'pry'
-require 'csv'
 require_relative '../models/event'
+require 'csv'
 
 class EventRepository
   def initialize(csv_file)
     @csv_file = csv_file
     @events = []
     @next_id = 1
-    load_csv if File.exist?(@csv_file)
+    load_csv
     # binding.pry
   end
 
@@ -15,7 +15,7 @@ class EventRepository
     event.id = @next_id
     @events << event
     @next_id += 1
-    # save_csv
+    # save_csv ???
   end
 
   def all
@@ -34,7 +34,6 @@ class EventRepository
       row[:id] = row[:id].to_i
       row[:name] = row[:name].to_s
       @events << Event.new(row)
-      # binding.pry
     end
     @next_id = @events.last.id + 1 unless @events.empty?
   end

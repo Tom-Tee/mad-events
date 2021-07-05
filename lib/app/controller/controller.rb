@@ -1,6 +1,7 @@
 # require_relative '../models/event'
 # require_relative '../models/speaker'
 # require_relative '../models/talk'
+require_relative '../view/view'
 
 class Controller
 
