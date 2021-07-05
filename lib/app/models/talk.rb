@@ -1,11 +1,11 @@
 class Talk
   attr_reader :event, :speaker, :start_time, :end_time
 
-  def initialize(event, speaker, start_time, end_time, id)
-    @event = event
-    @speaker = speaker
-    @start_time = start_time
-    @end_time = end_time
-    @id = id
+  def initialize(hash = {})
+    @event = hash[:event]
+    @speaker = hash[:speaker]
+    @start_time = hash[:start_time]
+    @end_time = hash[:end_time]
+    @id = hash[:id]
   end
 end

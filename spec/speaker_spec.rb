@@ -13,9 +13,9 @@ rescue LoadError => e
 end
 
 describe Speaker do
-  let(:speaker_class) { Speaker.new("Jacqui Cooper", 2) }
+  let(:speaker_class) { Speaker.new(hash = {name: "Jacqui Cooper", id: 2}) }
 
-  it "should be initialized with a name" do
+  it "should be initialized with a hash of properties" do
     expect(speaker_class).to be_a(Speaker)
   end
 

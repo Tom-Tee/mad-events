@@ -7,7 +7,6 @@ class SpeakerRepository
     @csv_file = csv_file
     @speakers = []
     load_csv if File.exist?(@csv_file)
-    # binding.pry
   end
 
   def all
@@ -24,10 +23,10 @@ class SpeakerRepository
   def load_csv
     csv_options = { headers: :first_row, header_converters: :symbol }
     CSV.foreach(@csv_file, csv_options) do |row|
-      # binding.pry
       row[:id] = row[:id].to_i
       row[:name] = row[:name].to_s
-      @speakers << Speaker.new(row[:name], row[:id])
+      @speakers << Speaker.new(row)
+      # binding.pry
     end
   end
 end

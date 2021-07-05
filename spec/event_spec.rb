@@ -13,9 +13,9 @@ rescue LoadError => e
 end
 
 describe Event do
-  let(:event_class) { Event.new("Hybrid Melbourne Showcase", 1) }
+  let(:event_class) { Event.new(hash = {name: "Hybrid Melbourne Showcase", id: 2}) }
 
-  it "should be initialized with a name" do
+  it "should be initialized with a hash of properties" do
     expect(event_class).to be_a(Event)
   end
 

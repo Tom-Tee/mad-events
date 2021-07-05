@@ -10,6 +10,13 @@ class EventRepository
     # binding.pry
   end
 
+  def create(customer)
+    customer.id = @next_id
+    @events << event
+    @next_id += 1
+    save_csv
+  end
+
   def all
     @events
   end
@@ -25,7 +32,8 @@ class EventRepository
     CSV.foreach(@csv_file, csv_options) do |row|
       row[:id] = row[:id].to_i
       row[:name] = row[:name].to_s
-      @events << Event.new(row[:name], row[:id])
+      @events << Event.new(row)
+      # binding.pry
     end
   end
 end
