@@ -19,9 +19,11 @@ class SpeakerRepository
   end
 
   def create(speaker)
-    speaker.id = @speaker
-    @events << event
+    speaker.id = @next_id
+    @speakers << speaker
+        # binding.pry
     @next_id += 1
+        # binding.pry
     # save_csv ???
   end
 

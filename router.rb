@@ -9,13 +9,23 @@ class Router
   end
 
   def start_mad_events
-    welcome_message
+    welcome_selection
     get_choice = gets.chomp
     user_action(user_choice)
   end
 
+   def welcome_selection
+    puts "--------------------"
+    puts "---- MAD EVENTS ----"
+    puts "--------------------"
+    puts "1. See some of our previous events"
+    puts "2. See a list of our speakers"
+    puts "3. Create your Event, Speakers and Talks"
+    puts "4. Exit"
+    print "> "
+  end
+
   def welcome_message
-    puts "WELCOME TO MAD EVENTS"
     puts "PLEASE CREATE AN EVENT WITH `CREATE EVENT (event name)`"
     puts "PLEASE CREATE A SPEAKER WITH `CREATE SPEAKER (speaker name)`"
     puts "PLEASE CREATE A TALK WITH `CREATE TALK (name, speaker, start time, end time)`"

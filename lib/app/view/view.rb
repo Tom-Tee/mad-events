@@ -1,15 +1,18 @@
 class View
 
-  def name_of_event_or_speaker(input)
-    # "Create the name of #{input} with `CREATE #{input} {name of event}`"
-    # user_input = gets.chomp
-    # error_message if user_input != include?('CREATE')
-    # case statement in router?
+  def event_created(event)
+    puts "You have created an event - #{event}"
   end
 
-
-  def error_message
-
+  def speaker_created(speaker)
+    puts "You have created a speaker - #{speaker}"
   end
 
+  def show_all_events(events)
+    puts "-------"
+    puts "---- Some of our previous Events ----"
+    events.each do |event|
+      puts "-- #{event.name}"
+    end
+  end
 end
