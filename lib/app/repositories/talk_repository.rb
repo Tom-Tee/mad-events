@@ -24,7 +24,7 @@ class TalkRepository
       row[:end_time] = Time.now
       @talks << Talk.new(row)
     end
-    # @next_id = @orders.last.id + 1 unless @orders.empty?
+
   end
 
 end

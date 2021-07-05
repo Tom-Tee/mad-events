@@ -6,6 +6,7 @@ class SpeakerRepository
   def initialize(csv_file)
     @csv_file = csv_file
     @speakers = []
+    @next_id = 1
     load_csv if File.exist?(@csv_file)
   end
 
@@ -28,5 +29,6 @@ class SpeakerRepository
       @speakers << Speaker.new(row)
       # binding.pry
     end
+    @next_id = @speakers.last.id + 1 unless @speakers.empty?
   end
 end
