@@ -12,6 +12,12 @@ class View
     puts "------------------------------------"
   end
 
+  def talk_created(talk, event, start_time, end_time, speaker)
+    puts "------------------------------------"
+    puts "You have created a talk - #{talk}, at #{event}, start time: #{start_time} end time: #{end_time}. Presented by #{speaker}"
+    puts "------------------------------------"
+  end
+
   def show_all_events(events)
     puts "-------"
     puts "---- Some of our previous Events ----"
@@ -19,6 +25,13 @@ class View
     puts "------------------------------------"
       puts "-- #{event.name}"
     end
+  end
+
+  def show_all_talks(talk, start_time, end_time, speaker)
+    puts "------------------------------------"
+    # puts "- #{talk}, at #{event}, start time: #{start_time} end time: #{end_time}"
+    puts "#{start_time} - #{end_time}"
+    puts "#{talk} presented by #{speaker}"
   end
 
   def show_all_speakers(speakers)
