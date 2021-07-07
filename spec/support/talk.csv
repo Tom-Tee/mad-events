@@ -1,2 +1,2 @@
-id,event_id,speaker_id,start_timeend_time
-1,1,1,7,7.2
+id,name,event_id,speaker_id,start_time,end_time
+1,A Champion Attiude,1,1,7:00am,7:20am

@@ -1,4 +1,6 @@
 require_relative "support/csv_helper"
+require 'tod'
+require 'time'
 
 begin
   require_relative "../lib/app/repositories/talk_repository"
@@ -19,8 +21,9 @@ end
 describe TalkRepository, :talk do
     let(:talks) do
     [
-      [ "id", "event_id", "speaker_id", "start_time" "end_time" ],
-      [ 1, 1, 1, 7, 7.20],
+
+      ["id", "name", "event_id", "speaker_id", "start_time", "end_time"],
+      [1,'A Champion Attiude',1,1,'7:00am','7:20am']
     ]
     end
 
@@ -43,14 +46,6 @@ describe TalkRepository, :talk do
     let(:events_csv_path) { "spec/support/events.csv" }
     let(:speaker_csv_path) { "spec/support/speaker.csv" }
     let(:talk_csv_path) { "spec/support/talk.csv" }
-
-    # before(:each) do
-    #   CsvHelper.write_csv(speaker_csv_path, speakers)
-    # end
-
-    # before(:each) do
-    #   CsvHelper.write_csv(events_csv_path, events)
-    # end
 
     before(:each) do
       CsvHelper.write_csv(events_csv_path, events)
@@ -82,13 +77,14 @@ describe TalkRepository, :talk do
 
       it "should fill the `@talks` with instances of `Talk`, setting the correct types on each property" do
         loaded_talks = elements(talk_repo) || []
+        time_value = Tod::TimeOfDay
         fail if loaded_talks.empty?
         loaded_talks.each do |talk|
           expect(talk).to be_a(Talk)
           expect(talk.event).to be_a(Event)
           expect(talk.speaker).to be_a(Speaker)
-          expect(talk.start_time).to be_a(Time)
-          expect(talk.end_time).to be_a(Time)
+          expect(talk.start_time.second_of_day).to be_a(Integer)
+          expect(talk.end_time.second_of_day).to be_a(Integer)
         end
       end
 end

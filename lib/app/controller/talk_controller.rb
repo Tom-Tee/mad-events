@@ -10,26 +10,29 @@ class TalkController
     @view = TalkView.new
   end
 
-  def add_talk(match_array)
+  def split_talk_data(match_array)
     event = @event_repository.find_event_by_name(match_array[1])
-    return @view.event_not_found if event == nil
+    return @view.event_not_found if event.nil?
+
     speaker = @speaker_repository.find_speaker_by_name(match_array[5])
-    return @view.speaker_not_found if speaker == nil
+    return @view.speaker_not_found if speaker.nil?
+
     begin
-    start_time =  Tod::TimeOfDay.parse "#{match_array[3]}"
+    start_time = Tod::TimeOfDay.parse "#{match_array[3]}"
     end_time = Tod::TimeOfDay.parse "#{match_array[4]}"
-    rescue
-      puts "Invalid time of day"
-      return
-    end
+    rescue; puts "Invalid time of day"; return; end
     talk_name = "#{match_array[2].delete("'")}"
-    new_talk = Talk.new(name: talk_name, event: event, speaker: speaker, start_time: start_time, end_time: end_time)
+    add_talk([talk_name, event, start_time, end_time, speaker])
+  end
+
+  def add_talk(talk_data)
+    new_talk = Talk.new(name: talk_data[0], event: talk_data[1], speaker: talk_data[4], start_time: talk_data[2], end_time: talk_data[3])
     search_talks = @talk_repository.search_for_talk(new_talk.event.name)
     if check_if_time_is_taken(new_talk, search_talks) == true
-      puts "there is already a talk at that time, please choose another"
+      @view.already_a_talk
     else
       @talk_repository.create(new_talk)
-      @view.talk_created(match_array[2], match_array[1], match_array[3], match_array[4],match_array[5])
+      @view.talk_created(talk_data[0], talk_data[1].name, convert_time(talk_data[2]), convert_time(talk_data[3]), talk_data[4].name)
     end
   end
 

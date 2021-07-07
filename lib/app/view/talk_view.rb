@@ -11,11 +11,15 @@ class TalkView
     puts "#{talk} presented by #{speaker}"
   end
 
+  def already_a_talk
+    puts "there is already a talk at that time, please choose another"
+  end
+
   def speaker_not_found
     puts "The speaker that you requested was not found"
   end
 
   def event_not_found
-    puts "The event that you requested was not found"
+    puts "The event that you requested was not found or there is no talks attached"
   end
 end

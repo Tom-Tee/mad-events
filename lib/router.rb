@@ -45,7 +45,7 @@ class Router
     if match_regex == nil
       must_be_correct
     else
-      @talk_controller.add_talk(match_regex)
+      @talk_controller.split_talk_data(match_regex)
     end
   end
 
