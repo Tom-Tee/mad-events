@@ -1,9 +1,10 @@
 require 'pry'
 
 class Router
-
-  def initialize(controller)
-    @controller = controller
+  def initialize(event_controller, speaker_controller, talk_controller)
+    @event_controller = event_controller
+    @speaker_controller = speaker_controller
+    @talk_controller = talk_controller
   end
 
   def run
@@ -17,19 +18,23 @@ class Router
     welcome_selection
     get_choice = gets.chomp
     user_action(get_choice)
-    # puts "----------------------"
   end
 
   def create_event_information
+    system 'clear'
     running_event = true
+    event_details
     while running_event == true
-      event_details
       choice = gets.chomp
-      @controller.add_event(choice[13..choice.length]) if (choice.include?("CREATE EVENT"))
-      @controller.add_speaker(choice[15..choice.length]) if (choice.include?("CREATE SPEAKER"))
-      talk_validation(choice) if (choice.include?("CREATE TALK"))
-      @controller.list_all_talks(choice[12..choice.length])if (choice.include?"PRINT TALKS")
-      running_event = false if choice == "5"
+      case
+      when choice.include?("CREATE EVENT") then @event_controller.add_event(choice[13..choice.length])
+      when choice.include?("CREATE SPEAKER") then @speaker_controller.add_speaker(choice[15..choice.length])
+      when choice.include?("CREATE TALK") then talk_validation(choice)
+      when choice.include?("PRINT TALKS") then @talk_controller.print_talks(choice[12..choice.length])
+      when choice == "4"  then running_event = false
+      else
+        puts "Try again...Make sure your entry is exactly as requested or 4 to exit"
+    end
     end
   end
 
@@ -37,20 +42,18 @@ class Router
     choice_edit = choice[12..choice.length]
     regex = /([a-zA-Z_\s()]*) (['a-zA-Z\s']*) ([\d{2}:am||pm]*) ([\d{2}:am||pm]*) ([a-zA-Z]*)/
     match_regex = choice_edit.match(regex)
-      # match_regex = choice_edit.match(regex)
-      if match_regex == nil
-        system 'clear'
-        must_be_correct
-      else
-      @controller.add_talk(match_regex)
+    if match_regex == nil
+      must_be_correct
+    else
+      @talk_controller.add_talk(match_regex)
     end
   end
 
   def user_action(choice)
     system 'clear'
     case choice.to_i
-    when 1 then @controller.list_all_events
-    when 2 then @controller.list_all_speakers
+    when 1 then @event_controller.list_all_events
+    when 2 then @speaker_controller.list_all_speakers
     when 3 then create_event_information
     when 4 then stop!
     else puts "Try again..."
@@ -65,7 +68,7 @@ class Router
     puts "1. See some of our previous events"
     puts "2. See a list of our speakers"
     puts "3. Create an Event, Speakers and Talks"
-    puts "4. Exit"
+    puts "4. Log out"
     print "> "
   end
 
@@ -84,7 +87,7 @@ class Router
     puts "Input your choice:"
     puts "EXAMPLE `PRINT TALKS melbourne_tech_meetup`"
     puts "-------------------------------------------"
-    puts "PRESS 5 to GO BACK TO VIRTUAL & HYBRID EVENT CONTROL CENTER"
+    puts "PRESS 4 to GO BACK TO VIRTUAL & HYBRID EVENT CONTROL CENTER"
     puts "Input your choice:"
   end
 
@@ -94,7 +97,6 @@ class Router
     puts "Make sure that the speaker and event are already created."
     puts "-------------------------------------------"
   end
-
 
   def stop!
     @running = false
