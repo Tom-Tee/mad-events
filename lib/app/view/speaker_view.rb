@@ -16,7 +16,6 @@ class SpeakerView
   end
 
   def speaker_not_found
-    # system 'clear'
     puts "The speaker that you requested was not found"
   end
 end

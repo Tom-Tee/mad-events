@@ -16,5 +16,4 @@ class SpeakerController
     speakers = @speaker_repository.all
     @speaker_view.show_all_speakers(speakers)
   end
-
 end

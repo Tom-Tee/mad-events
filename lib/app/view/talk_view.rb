@@ -1,6 +1,5 @@
 class TalkView
   def talk_created(talk, event, start_time, end_time, speaker)
-    # binding.pry
     start = "#{start_time[0..1]}:#{start_time[2..5]}"
     end_t = "#{end_time[0..1]}:#{end_time[2..5]}"
     puts "------------------------------------"

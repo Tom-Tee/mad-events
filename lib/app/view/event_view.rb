@@ -11,12 +11,11 @@ class EventView
     puts "---- Some of our previous Events ----"
     events.each do |event|
     puts "------------------------------------"
-      puts "-- #{event.name}"
+    puts "-- #{event.name}"
     end
   end
 
   def event_not_found
-    # system 'clear'
     puts "The event that you requested was not found"
   end
 end
