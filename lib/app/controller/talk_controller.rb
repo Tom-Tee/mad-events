@@ -10,9 +10,8 @@ class TalkController
     @talk_view = TalkView.new
   end
 
-  def split_talk_data(match_array)
+  def split_talk_data_from_regex(match_array)
     event = @event_repository.find_event_by_name(match_array[1])
-                # binding.pry
     return @talk_view.event_not_found if event.nil?
     speaker = @speaker_repository.find_speaker_by_name(match_array[5])
     return @talk_view.speaker_not_found if speaker.nil?
@@ -21,10 +20,10 @@ class TalkController
     end_time = Tod::TimeOfDay.parse "#{match_array[4]}"
     rescue; puts "Invalid time of day"; return; end
     talk_name = "#{match_array[2].delete("'")}"
-    add_talk([talk_name, event, start_time, end_time, speaker])
+    add_talk_to_db([talk_name, event, start_time, end_time, speaker])
   end
 
-  def add_talk(talk_data)
+  def add_talk_to_db(talk_data)
     new_talk = Talk.new(name: talk_data[0], event: talk_data[1], speaker: talk_data[4], start_time: talk_data[2], end_time: talk_data[3])
     search_talks = @talk_repository.search_for_talk(new_talk.event.name)
     if check_if_time_is_taken(new_talk, search_talks) == true

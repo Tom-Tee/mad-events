@@ -69,7 +69,7 @@ describe TalkController, :talk do
         choice = "Hybrid_Melbourne_Showcase 'working with arrays' 7:30am 8:00am John"
         regex = /([a-zA-Z_\s()]*) (['a-zA-Z\s']*) ([\d{2}:am||pm]*) ([\d{2}:am||pm]*) ([a-zA-Z]*)/
         match_regex = choice.match(regex)
-        talk_controller.split_talk_data(match_regex)
+        talk_controller.split_talk_data_from_regex(match_regex)
         expect(talk_repository.all.length).to eq(2)
       end
     end

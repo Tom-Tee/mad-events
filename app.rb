@@ -15,7 +15,6 @@ event_repository = EventRepository.new(EVENT_CSV_FILE)
 speaker_repository = SpeakerRepository.new(SPEAKER_CSV_FILE)
 talk_repository = TalkRepository.new(TALK_CSV_FILE, event_repository, speaker_repository)
 
-
 event_controller = EventController.new(event_repository)
 speaker_controller = SpeakerController.new(speaker_repository)
 talk_controller = TalkController.new(talk_repository, speaker_repository, event_repository)

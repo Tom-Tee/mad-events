@@ -1,6 +1,5 @@
 require 'pry'
 require 'artii'
-
 class Router
   def initialize(event_controller, speaker_controller, talk_controller)
     @event_controller = event_controller
@@ -9,7 +8,7 @@ class Router
   end
 
   def run
-        hello
+    hello
     @running = true
     while @running == true
     start_mad_events
@@ -47,7 +46,7 @@ class Router
     if match_regex == nil
       must_be_correct
     else
-      @talk_controller.split_talk_data(match_regex)
+      @talk_controller.split_talk_data_from_regex(match_regex)
     end
   end
 
@@ -82,7 +81,7 @@ class Router
     puts "PLEASE CREATE A SPEAKER WITH `CREATE SPEAKER speaker_name`"
     puts "EXAMPLE: `CREATE SPEAKER John"
     puts "-------------------------------------------"
-    puts "PLEASE CREATE A TALK WITH `CREATE TALK (event_name, talk_name, start_time, end_time, speaker_name)`"
+    puts "PLEASE CREATE A TALK WITH `CREATE TALK event_name 'talk_name' start_time end_time speaker_name`"
     puts "EXAMPLE `CREATE TALK melbourne_tech_meetup 'working with arrays' 7:30am 8:00am John`"
     puts "-------------------------------------------"
     puts "PLEASE SEE ALL TALKS WITH `PRINT TALKS event_name`"

@@ -36,7 +36,6 @@ class TalkRepository
       row[:start_time] = Tod::TimeOfDay.parse "#{row[:start_time]}"
       row[:end_time] = Tod::TimeOfDay.parse "#{row[:end_time]}"
       @talks << Talk.new(row)
-      # binding.pry
     end
   end
 end

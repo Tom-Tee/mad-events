@@ -12,12 +12,13 @@ The following commands will work on the terminal
 
 ## Setup
 
-Clone the GitHub repository and change directory into `Delegate Connect`:
+Clone the GitHub repository and change directory into `Mad Events`:
 ```
 git clone ..
 ```
 
-You will first need to have the latest version of Ruby installed on your computer.
+This application was built with Ruby 2.6.6
+
 You can check your Ruby version with:
 ```
 ruby -v
@@ -52,15 +53,15 @@ ruby app.rb
 
 ![UI - Creation Menu](docs/creation_menu.png)
 
-4 - You can create an event with `CREATE EVENT melbourne_tech_meetup`, please note that the event must be in snake_case if it more than two words. Feel free to see what happens when you get the formatting wrong!
+4 - You can create an event with `CREATE EVENT melbourne_tech_meetup`, please note that the event must be in snake_case if it more than two words.
 
 ![UI - Create Event](docs/create_event.png)
 
-5 - You can create a speaker with `CREATE SPEAKER John`, please note that the speaker must be in snake_case if it more than two words. Feel free to see what happens when you get the formatting wrong!
+5 - You can create a speaker with `CREATE SPEAKER John`, please note that the speaker must be in snake_case if it more than two words.
 
 ![UI - Create Event](docs/create_speaker.png)
 
-6 - You can create a talk with the correct formatting `CREATE TALK melbourne_tech_meetup 'working with arrays' 7:30am 8:00am John`. Please note that the talk name must have apostrophe around them and the speaker and event must already be created. You can also use 15:00 or 3pm time. Feel free to get one of these wrong when creating the string. Have a look what happens!
+6 - You can create a talk with the correct formatting `CREATE TALK melbourne_tech_meetup 'working with arrays' 7:30am 8:00am John`. Please note that the talk name must have apostrophe around with them no special characters and the speaker and event must already be created. You can also use 15:00 or 3pm time. Feel free to get one of these wrong when creating the string. Have a look what happens!
 
 ![UI - Create Talk](docs/create_talk.png)
 
@@ -68,7 +69,7 @@ ruby app.rb
 
 ![UI - Time Taken](docs/time_taken.png)
 
-Print off the talks in ascending order with `PRINT TALKS melbourne_tech_meetup`
+Print off the talks in ascending order for a specific Event with `PRINT TALKS melbourne_tech_meetup`
 
 ![UI - Print Talks](docs/print_talks.png)
 
@@ -119,7 +120,7 @@ PRINT TALKS Partnering_to_End_Modern_Slavery
 
 4. Deeper tests with rspec.
 
-5. Add validations for reverse time e.g. it won't let you make a talk with a start time 4pm end time 3pm etc
+5. Add validations for reverse time e.g. it won't let you make a talk with a start time 4pm end time 3pm etc.
 
 6. More bug testing with different users trying out the application.
 

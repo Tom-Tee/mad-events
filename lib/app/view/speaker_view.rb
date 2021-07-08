@@ -11,7 +11,7 @@ class SpeakerView
     puts "---- Some of our our speakers ----"
     speakers.each do |speaker|
     puts "------------------------------------"
-      puts "-- #{speaker.name}"
+    puts "-- #{speaker.name}"
     end
   end
 
