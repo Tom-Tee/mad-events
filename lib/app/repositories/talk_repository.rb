@@ -18,9 +18,7 @@ class TalkRepository
   end
 
   def create(talk)
-    # talk.id = @next_id
     @talks << talk
-    # @next_id += 1
     # save csv?
   end
 

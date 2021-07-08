@@ -52,15 +52,15 @@ ruby app.rb
 
 ![UI - Creation Menu](docs/creation_menu.png)
 
-4 - You can create an event with `CREATE EVENT melbourne_tech_meetup`, please note that the event must be in snake_case if it more than two words.
+4 - You can create an event with `CREATE EVENT melbourne_tech_meetup`, please note that the event must be in snake_case if it more than two words. Feel free to see what happens when you get the formatting wrong!
 
 ![UI - Create Event](docs/create_event.png)
 
-5 - You can create a speaker with `CREATE SPEAKER John`, please note that the speaker must be in snake_case if it more than two words.
+5 - You can create a speaker with `CREATE SPEAKER John`, please note that the speaker must be in snake_case if it more than two words. Feel free to see what happens when you get the formatting wrong!
 
 ![UI - Create Event](docs/create_speaker.png)
 
-6 - You can create a talk with the correct formatting `CREATE TALK melbourne_tech_meetup 'working with arrays' 7:30am 8:00am John`. Please note that the talk name must have '' around it and the speaker and event must already be created. You can also use 15:00 time or 3pm.
+6 - You can create a talk with the correct formatting `CREATE TALK melbourne_tech_meetup 'working with arrays' 7:30am 8:00am John`. Please note that the talk name must have apostrophe around them and the speaker and event must already be created. You can also use 15:00 or 3pm time. Feel free to get one of these wrong when creating the string. Have a look what happens!
 
 ![UI - Create Talk](docs/create_talk.png)
 
@@ -111,7 +111,7 @@ PRINT TALKS Partnering_to_End_Modern_Slavery
 
 ## Ideas for the future:
 
-1. Regex validation could have been stronger - e.g. have spaces within the event name.
+1. Regex validation could have been stronger. Could have spaces within the event and speaker name.
 
 2. String and object validations for event and speaker - e.g. return an error if an event is already in the database.
 
