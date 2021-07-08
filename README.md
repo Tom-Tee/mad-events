@@ -75,7 +75,7 @@ Print off the talks in ascending order for an event with `PRINT TALKS event_name
 
 ## Testing
 
-I tried my best to add some testing to the application. I tested the models, repositories and controllers for the main features with rspec, a popular testing framework for Ruby.
+I added some testing to the application with rspec, a popular testing framework for Ruby. I tested the models, repositories and controllers for the main features.
 
 You can run the tests in the parent directory with
 
@@ -86,7 +86,7 @@ rspec spec
 
 ## Considerations
 
-1. I did the Mad Events challenge trying my best to follow OoP and TDD principles.
+1. I did the Mad Events challenge following OoP and TDD principles.
 
 2. My engineering focus of this application was with a classic Ruby MVC design pattern with router & repository included.
 
