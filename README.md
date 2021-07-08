@@ -14,11 +14,10 @@ The following commands will work on the terminal
 
 Clone the GitHub repository and change directory into `Mad Events`:
 ```
-git clone ..
+git clone gh repo clone Tom-Tee/mad-events
 ```
 
-This application was built with Ruby 2.6.6
-
+You will first need to have the latest version of Ruby installed on your computer.
 You can check your Ruby version with:
 ```
 ruby -v
@@ -53,32 +52,32 @@ ruby app.rb
 
 ![UI - Creation Menu](docs/creation_menu.png)
 
-4 - You can create an event with `CREATE EVENT melbourne_tech_meetup`, please note that the event must be in snake_case if it more than two words.
+4 - You can create an event with `CREATE EVENT event_name`, please note that the event must be in snake_case if it more than two words. See below:
 
 ![UI - Create Event](docs/create_event.png)
 
-5 - You can create a speaker with `CREATE SPEAKER John`, please note that the speaker must be in snake_case if it more than two words.
+5 - You can create a speaker with `CREATE SPEAKER name`,see below. Please note that the speaker must be in snake_case if it more than two words.
 
 ![UI - Create Event](docs/create_speaker.png)
 
-6 - You can create a talk with the correct formatting `CREATE TALK melbourne_tech_meetup 'working with arrays' 7:30am 8:00am John`. Please note that the talk name must have apostrophe around with them no special characters and the speaker and event must already be created. You can also use 15:00 or 3pm time. Feel free to get one of these wrong when creating the string. Have a look what happens!
+6 - You can create a talk with the correct formatting `CREATE TALK event_name 'talk_name' 7:30am 8:00am speaker_name`. Please note that the talk name must have apostrophe around them and the speaker and event must already be created. You can also use 15:00 or 3pm time. Feel free to get one of these wrong when creating the string. Have a look what happens! See below:
 
 ![UI - Create Talk](docs/create_talk.png)
 
-7 - You can create as many talks, speakers and events as you like. The talks cannot overlap or you will see an error.
+7 - You can create as many talks, speakers and events as you like. The talks cannot overlap on the same event or you will see an error.
 
 ![UI - Time Taken](docs/time_taken.png)
 
-Print off the talks in ascending order for a specific Event with `PRINT TALKS melbourne_tech_meetup`
+Print off the talks in ascending order for a specific event with `PRINT TALKS event_name`, see below:
 
 ![UI - Print Talks](docs/print_talks.png)
 
 
 ## Testing
 
-I tried my best to add some testing to the application. I tested the models, repositories and controllers for the main features.
+I tried my best to add some testing to the application. I tested the models, repositories and controllers for the main features with rspec.
 
-You can run the tests with
+You can run the tests in the parent directory with
 
 
 ```
@@ -91,9 +90,7 @@ rspec spec
 
 2. My engineering focus of this application was with a classic Ruby MVC design pattern with router & repository included.
 
-3. I choose to create a CSV database for the application to pull and store data when the app was running. You can see in action this by pressing `1` or `2` on the start menu OR
-
-Run these commands on the model creation menu
+3. I choose to create a CSV database for the application to pull and store data when the app was running. You can see in action this by pressing `1` or `2` on the start menu OR run these commands on the model creation menu:
 ```
 PRINT TALKS Hybrid_Melbourne_Showcase
 PRINT TALKS Partnering_to_End_Modern_Slavery
@@ -112,7 +109,7 @@ PRINT TALKS Partnering_to_End_Modern_Slavery
 
 ## Ideas for the future:
 
-1. Regex validation could have been stronger. Could have spaces within the event and speaker name.
+1. Regex validation could have been stronger. Could have spaces within the event and speaker name for example.
 
 2. String and object validations for event and speaker - e.g. return an error if an event is already in the database.
 
