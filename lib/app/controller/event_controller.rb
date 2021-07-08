@@ -1,6 +1,5 @@
 require_relative '../view/event_view'
 require_relative '../models/event'
-require 'pry'
 
 class EventController
   def initialize(event_repository)

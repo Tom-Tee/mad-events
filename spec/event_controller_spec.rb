@@ -13,7 +13,7 @@ rescue LoadError => e
   end
 end
 
-describe EventController, :event do
+  describe EventController, :event do
     let(:events) do
     [
       [ 'id', 'name' ],
@@ -26,7 +26,6 @@ describe EventController, :event do
   let(:event_repository) { EventRepository.new(csv_path) }
   let(:event_controller) { EventController.new(event_repository)}
   # let(:repository_amount) { event_repository.all.length }
-
 
   before(:each) do
     CsvHelper.write_csv(csv_path, events)
