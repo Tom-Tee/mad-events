@@ -75,7 +75,7 @@ Print off the talks in ascending order for an event with `PRINT TALKS event_name
 
 ## Testing
 
-I tried my best to add some testing to the application. I tested the models, repositories and controllers for the main features with rspec, a popular testing framework for Ruby.
+I added testing to the application with rspec, a popular testing framework for Ruby. I tested the models, repositories and controllers for the main features.
 
 You can run the tests in the parent directory with
 
@@ -86,7 +86,7 @@ rspec spec
 
 ## Considerations
 
-1. I did the Mad Events challenge trying my best to follow OoP and TDD principles.
+1. I did the Mad Events challenge following OoP and TDD principles.
 
 2. My engineering focus of this application was with a classic Ruby MVC design pattern with router & repository included.
 
@@ -105,29 +105,6 @@ PRINT TALKS Partnering_to_End_Modern_Slavery
 3. I split the controllers up in to seperate parts relating to the models and ran the application a few times and tried squashing any validation bugs.
 
 4. I refined the process and added more tests and data to the database.
-
-
-## Ideas for the future:
-
-1. Regex validation could have been stronger. Could have spaces within the event and speaker name for example.
-
-2. String and object validations for event and speaker - e.g. return an error if an event is already in the database.
-
-3. Saving data to the database with CSV upon creation of event, speaker or talk. (I’ve left comments in the repository code).
-
-4. Deeper tests with rspec.
-
-5. Add validations for reverse time e.g. it won't let you make a talk with a start time 4pm end time 3pm etc.
-
-6. More bug testing with different users trying the application.
-
-## What I learned
-
-1. Could have added an instances of talks to the event model in the back end. I didn't feel this was absolutely necessary but would consider doing this in the future if I redid the challenge or the application needed more flexibility.
-
-2. Use branches to work out details and push to main branch on GitHub.
-
-3. Could have refined my testing before writing my code.
 
 ## References
 
