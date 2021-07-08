@@ -56,7 +56,7 @@ ruby app.rb
 
 ![UI - Create Event](docs/create_event.png)
 
-5 - You can create a speaker with `CREATE SPEAKER speaker_name`,see below. Please note that the speaker must be in snake_case if it more than two words.
+5 - You can create a speaker with `CREATE SPEAKER speaker_name`,see below. Please note at the moment that the speaker name must be singular.
 
 ![UI - Create Event](docs/create_speaker.png)
 
@@ -75,7 +75,7 @@ Print off the talks in ascending order for an event with `PRINT TALKS event_name
 
 ## Testing
 
-I added testing to the application with rspec, a popular testing framework for Ruby. I tested the models, repositories and controllers for the main features.
+I tried my best to add some testing to the application. I tested the models, repositories and controllers for the main features with rspec, a popular testing framework for Ruby.
 
 You can run the tests in the parent directory with
 
@@ -86,21 +86,23 @@ rspec spec
 
 ## Considerations
 
-1. I did the Mad Events challenge following OoP and TDD principles.
+1. I did the Mad Events challenge trying my best to follow OoP and TDD principles.
 
 2. My engineering focus of this application was with a classic Ruby MVC design pattern with router & repository included.
 
-3. I choose to create a CSV database for the application to pull and store data when the app was running. You can see this action by pressing `1` or `2` on the start menu OR run these commands on the model creation menu:
+3. Although it was not absolutely necessary, I choose to create a CSV database for the application to pull and store data when the app was running. You can see this action by pressing `1` or `2` on the start menu OR run these commands on the model creation menu:
 ```
 PRINT TALKS Hybrid_Melbourne_Showcase
 PRINT TALKS Partnering_to_End_Modern_Slavery
 ```
 
+I also left hints in the repository code that data could be saved to the CSV as well.
+
 ## Steps
 
 1. I started by creating the models, repositories and tests for each speaker, event and talk. My basic idea was to use the talk model to store instances of the speaker and event and call from this when validating talks.
 
-2. I then worked on how I was going to integrate the application to take user input/take from the database with a central controller, views and a router.
+2. I then worked on how I was going to integrate the application to take user input/take from the database with a central controller, views and a router. I chose regex & string splitting to do so.
 
 3. I split the controllers up in to seperate parts relating to the models and ran the application a few times and tried squashing any validation bugs.
 

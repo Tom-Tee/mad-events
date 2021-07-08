@@ -21,6 +21,17 @@ class Router
     user_action(get_choice)
   end
 
+  def user_action(choice)
+    system 'clear'
+    case choice.to_i
+    when 1 then @event_controller.list_all_events
+    when 2 then @speaker_controller.list_all_speakers
+    when 3 then create_event_information
+    when 4 then goodbye
+    else puts "Try again..."
+    end
+  end
+
   def create_event_information
     system 'clear'
     running_event = true
@@ -41,23 +52,12 @@ class Router
 
   def talk_validation(choice)
     choice_edit = choice[12..choice.length]
-    regex = /([a-zA-Z_\s()]*) (['a-zA-Z\s']*) ([\d{2}:am||pm]*) ([\d{2}:am||pm]*) ([a-zA-Z]*)/
+    regex = /([a-zA-Z_\s()]*) (['a-zA-Z\s']*) ([\d{2}:am||pm]*) ([\d{2}:am||pm]*) ([a-zA-Z_]*)/
     match_regex = choice_edit.match(regex)
     if match_regex == nil
       must_be_correct
     else
       @talk_controller.split_talk_data_from_regex(match_regex)
-    end
-  end
-
-  def user_action(choice)
-    system 'clear'
-    case choice.to_i
-    when 1 then @event_controller.list_all_events
-    when 2 then @speaker_controller.list_all_speakers
-    when 3 then create_event_information
-    when 4 then goodbye
-    else puts "Try again..."
     end
   end
 
