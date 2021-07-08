@@ -14,10 +14,10 @@ The following commands will work on the terminal
 
 Clone the GitHub repository and change directory into `Mad Events`:
 ```
-git clone gh repo clone Tom-Tee/mad-events
+gh repo clone Tom-Tee/mad-events
 ```
 
-You will first need to have the latest version of Ruby installed on your computer.
+This application was built with Ruby 2.6.6
 You can check your Ruby version with:
 ```
 ruby -v
@@ -56,11 +56,11 @@ ruby app.rb
 
 ![UI - Create Event](docs/create_event.png)
 
-5 - You can create a speaker with `CREATE SPEAKER name`,see below. Please note that the speaker must be in snake_case if it more than two words.
+5 - You can create a speaker with `CREATE SPEAKER speaker_name`,see below. Please note that the speaker must be in snake_case if it more than two words.
 
 ![UI - Create Event](docs/create_speaker.png)
 
-6 - You can create a talk with the correct formatting `CREATE TALK event_name 'talk_name' 7:30am 8:00am speaker_name`. Please note that the talk name must have apostrophe around them and the speaker and event must already be created. You can also use 15:00 or 3pm time. Feel free to get one of these wrong when creating the string. Have a look what happens! See below:
+6 - You can create a talk with the correct formatting `CREATE TALK event_name 'talk_name' 7:30am 8:00am speaker_name`. Please note that the talk name must have apostrophe around it and the speaker and event must already be created (see below). You can also use 15:00 or 3pm time. Feel free to get one of these wrong when creating the string and have a look what happens!
 
 ![UI - Create Talk](docs/create_talk.png)
 
@@ -68,14 +68,14 @@ ruby app.rb
 
 ![UI - Time Taken](docs/time_taken.png)
 
-Print off the talks in ascending order for a specific event with `PRINT TALKS event_name`, see below:
+Print off the talks in ascending order for an event with `PRINT TALKS event_name`, see below:
 
 ![UI - Print Talks](docs/print_talks.png)
 
 
 ## Testing
 
-I tried my best to add some testing to the application. I tested the models, repositories and controllers for the main features with rspec.
+I tried my best to add some testing to the application. I tested the models, repositories and controllers for the main features with rspec, a popular testing framework for Ruby.
 
 You can run the tests in the parent directory with
 
@@ -90,7 +90,7 @@ rspec spec
 
 2. My engineering focus of this application was with a classic Ruby MVC design pattern with router & repository included.
 
-3. I choose to create a CSV database for the application to pull and store data when the app was running. You can see in action this by pressing `1` or `2` on the start menu OR run these commands on the model creation menu:
+3. I choose to create a CSV database for the application to pull and store data when the app was running. You can see this action by pressing `1` or `2` on the start menu OR run these commands on the model creation menu:
 ```
 PRINT TALKS Hybrid_Melbourne_Showcase
 PRINT TALKS Partnering_to_End_Modern_Slavery
@@ -102,7 +102,7 @@ PRINT TALKS Partnering_to_End_Modern_Slavery
 
 2. I then worked on how I was going to integrate the application to take user input/take from the database with a central controller, views and a router.
 
-3. I split the controllers up in to seperate parts relating to the models and ran the application a few times and tried squashing any string validation bugs.
+3. I split the controllers up in to seperate parts relating to the models and ran the application a few times and tried squashing any validation bugs.
 
 4. I refined the process and added more tests and data to the database.
 
@@ -119,7 +119,7 @@ PRINT TALKS Partnering_to_End_Modern_Slavery
 
 5. Add validations for reverse time e.g. it won't let you make a talk with a start time 4pm end time 3pm etc.
 
-6. More bug testing with different users trying out the application.
+6. More bug testing with different users trying the application.
 
 ## What I learned
 
