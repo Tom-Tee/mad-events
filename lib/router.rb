@@ -1,5 +1,5 @@
 require 'pry'
-
+require 'artii'
 class Router
   def initialize(event_controller, speaker_controller, talk_controller)
     @event_controller = event_controller
@@ -8,6 +8,7 @@ class Router
   end
 
   def run
+        hello
     @running = true
     while @running == true
     start_mad_events
@@ -55,7 +56,7 @@ class Router
     when 1 then @event_controller.list_all_events
     when 2 then @speaker_controller.list_all_speakers
     when 3 then create_event_information
-    when 4 then stop!
+    when 4 then goodbye
     else puts "Try again..."
     end
   end
@@ -98,7 +99,21 @@ class Router
     puts "-------------------------------------------"
   end
 
-  def stop!
-    @running = false
+  def hello
+    system 'clear'
+    artii = Artii::Base.new
+    puts artii.asciify('MAD')
+    puts artii.asciify('EVENTS')
+  end
+
+  def goodbye
+    system 'clear'
+    artii = Artii::Base.new
+    puts artii.asciify('Thanks!')
+    puts ''
+    puts '          Made by Thomas Temple'
+    puts ''
+    puts ''
+    exit
   end
 end

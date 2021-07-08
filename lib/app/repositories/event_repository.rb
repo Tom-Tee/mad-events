@@ -8,7 +8,6 @@ class EventRepository
     @events = []
     @next_id = 1
     load_csv
-    # binding.pry
   end
 
   def create(event)

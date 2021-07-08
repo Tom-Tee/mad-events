@@ -15,11 +15,11 @@ class SpeakerRepository
   end
 
   def find_speaker_by_id(id)
-    @speakers.find { |event| event.id == id }
+    @speakers.find { |speaker| speaker.id == id }
   end
 
   def find_speaker_by_name(name)
-    @speakers.find { |event| event.name == name }
+    @speakers.find { |speaker| speaker.name == name }
   end
 
   def create(speaker)
@@ -28,7 +28,6 @@ class SpeakerRepository
     @next_id += 1
     # save csv?
   end
-
 
   private
 

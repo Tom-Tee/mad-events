@@ -1,5 +1,6 @@
 begin
   require_relative "../lib/app/controller/event_controller"
+  require_relative "../lib/app/repositories/event_repository"
 rescue LoadError => e
   if e.message =~ /order/
     describe "Event" do
@@ -22,6 +23,10 @@ describe EventController, :event do
   end
 
   let(:csv_path) { "spec/support/events.csv" }
+  let(:event_repository) { EventRepository.new(csv_path) }
+  let(:event_controller) { EventController.new(event_repository)}
+  # let(:repository_amount) { event_repository.all.length }
+
 
   before(:each) do
     CsvHelper.write_csv(csv_path, events)
@@ -29,7 +34,14 @@ describe EventController, :event do
 
     describe "#initialize" do
       it "should be initialized with a `EventRepository` instance" do
-        expect(EventRepository.instance_method(:initialize).arity).to eq(1)
+        expect(EventController.instance_method(:initialize).arity).to eq(1)
+      end
+    end
+
+    describe "#add_event" do
+      it "should add an event to the event repository" do
+        event_controller.add_event("new_event")
+        expect(event_repository.all.length).to be > 2
       end
     end
 end
